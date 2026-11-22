@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des artistes</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <h1>Liste des artistes</h1>
+
+    <ul>
+        {{range .}}
+            <li>{{.}}</li>
+        {{end}}
+    </ul>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+/* Style général de notre site */
+body {
+    background-color: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 40px;
+}
+
+/* Style des titres */
+h1 {
+    color: #a855f7;
+    text-align: center;
+}
+
+/* Style de la liste des artistes */
+ul {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 0;
+    list-style: none;
+}
+
+/* Style de chaque artiste */
+li {
+    background-color: #242424;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Style du nom sur la fiche artiste */
+h2 {
+    text-align: center;
+    color: #a855f7;
+    font-size: 30px;
+}
