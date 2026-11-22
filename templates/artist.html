@@ -7,9 +7,68 @@
 </head>
 <body>
 
-    <h1>Fiche de l'artiste</h1>
+   <!-- Nom de l'artiste -->
+<h1>{{.Nom}}</h1>
 
-    <h2>{{.}}</h2>
+<!-- Photo de l'artiste -->
+<div class="artist-detail">
+    <img src="{{.Photo}}" alt="Photo de {{.Nom}}">
+</div>
+
+
+<!-- Section des albums -->
+<section class="albums-section">
+
+    <h2>TOP 3 DES ALBUMS</h2>
+
+    
+    <div class="albums-container">
+
+    
+    {{range .Albums}}
+
+    <div class="album-card">
+
+    <img src="{{.Photo}}" alt="Pochette de {{.Nom}}">
+
+    <h3>{{.Nom}}</h3>
+
+    </div>
+
+{{end}}
+
+
+    </div>
+
+
+</section>
+
+<!-- Section des certifications -->
+<section class="certifications-section">
+
+    <h2>CERTIFICATIONS</h2>
+
+    
+    <div class="certifications-container">
+
+   
+    {{range .Certifications}}
+
+    <div class="certification-card">
+
+    <h3>{{.Album}}</h3>
+
+    <p>{{.Niveau}}</p>
+
+    </div>
+
+    {{end}}
+
+
+    </div>
+
+
+</section>
 
 </body>
 </html>

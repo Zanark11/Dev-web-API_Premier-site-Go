@@ -2,18 +2,34 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Liste des artistes</title>
+    <title>Les artistes</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-    <h1>Liste des artistes</h1>
+    <h1>Nos artistes</h1>
 
-    <ul>
-        {{range .}}
-            <li>{{.}}</li>
-        {{end}}
-    </ul>
+    <div class="artists-container">
+
+        <!-- Koba la D -->
+        <a href="/artists/1" class="artist-card">
+            <span class="artist-name">KOBA LA D</span>
+            <img src="/static/images/koba-la.jpg" alt="Koba la D">
+        </a>
+
+        <!-- Leto -->
+        <a href="/artists/2" class="artist-card">
+            <span class="artist-name">LETO</span>
+            <img src="/static/images/leto.jpg" alt="Leto">
+        </a>
+
+        <!-- Beendo Z -->
+        <a href="/artists/3" class="artist-card">
+            <span class="artist-name">BEENDO Z</span>
+            <img src="/static/images/beendo-z.png" alt="Beendo Z">
+        </a>
+
+    </div>
 
 </body>
 </html>

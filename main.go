@@ -8,7 +8,130 @@ import (
 	"strings"
 )
 
+// Structure qui représente un album
+type Album struct {
+	Nom   string
+	Photo string
+}
+
+// Structure qui représente une certification
+type Certification struct {
+	Album  string
+	Niveau string
+}
+
+// Structure qui représente un artiste
+type Artiste struct {
+	Nom            string
+	Photo          string
+	Albums         []Album
+	Certifications []Certification
+}
+
 func main() {
+
+	// On prépare les informations de nos artistes
+	artistes := []Artiste{
+
+		{
+			Nom:   "Koba la D",
+			Photo: "/static/images/koba-la.jpg",
+			Albums: []Album{
+				{
+					Nom:   "L'Affranchi",
+					Photo: "/static/images/koba-album1.jpg",
+				},
+				{
+					Nom:   "VII",
+					Photo: "/static/images/koba-album2.jpg",
+				},
+				{
+					Nom:   "Détail",
+					Photo: "/static/images/koba-album3.jpg",
+				},
+			},
+			Certifications: []Certification{
+				{
+					Album:  "Album 1",
+					Niveau: "Disque d'or",
+				},
+				{
+					Album:  "Album 3",
+					Niveau: "Disque de platine",
+				},
+				{
+					Album:  "Album 1",
+					Niveau: "Double disque de platine",
+				},
+			},
+		},
+
+		{
+			Nom:   "Leto",
+			Photo: "/static/images/leto.jpg",
+			Albums: []Album{
+				{
+					Nom:   "THUG CEREMONY",
+					Photo: "/static/images/leto-album1.jpg",
+				},
+				{
+					Nom:   "Jusq'aux étoiles",
+					Photo: "/static/images/leto-album2.jpg",
+				},
+				{
+					Nom:   "LIFE",
+					Photo: "/static/images/leto-album3.jpg",
+				},
+			},
+			Certifications: []Certification{
+				{
+					Album:  "Album 1",
+					Niveau: "Disque d'or",
+				},
+				{
+					Album:  "Album 1",
+					Niveau: "Disque de platine",
+				},
+				{
+					Album:  "Album 0",
+					Niveau: "Disque de diamant",
+				},
+			},
+		},
+
+		{
+			Nom:   "Beendo Z",
+			Photo: "/static/images/beendo-z.png",
+			Albums: []Album{
+				{
+					Nom:   "L'Elu",
+					Photo: "/static/images/beendo-album1.jpg",
+				},
+				{
+					Nom:   "De la fontaine",
+					Photo: "/static/images/beendo-album2.jpg",
+				},
+				{
+					Nom:   "PROPA",
+					Photo: "/static/images/beendo-album3.jpg",
+				},
+			},
+			Certifications: []Certification{
+				{
+					Album:  "Album 1",
+					Niveau: "Disque d'or",
+				},
+				{
+					Album:  "Album 0",
+					Niveau: "Disque de platine",
+				},
+				{
+					Album:  "Album 0",
+					Niveau: "Disque de diamant",
+				},
+			},
+		},
+	}
 
 	// Route de la page d'accueil
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -63,19 +186,14 @@ func main() {
 			return
 		}
 
-		// On prépare le nom de l'artiste
-		var artiste string
-
-		if id == 1 {
-			artiste = "Koba la D"
-		} else if id == 2 {
-			artiste = "Leto"
-		} else if id == 3 {
-			artiste = "Beendo Z"
-		} else {
+		// On vérifie que l'identifiant correspond à un artiste
+		if id < 1 || id > len(artistes) {
 			http.Error(w, "Artiste introuvable", http.StatusNotFound)
 			return
 		}
+
+		// On récupère l'artiste correspondant à l'identifiant
+		artiste := artistes[id-1]
 
 		// On charge le template de la fiche artiste
 		tmpl, err := template.ParseFiles("templates/artist.html")

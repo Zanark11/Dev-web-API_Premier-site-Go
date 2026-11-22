@@ -1,7 +1,23 @@
-
-/* Style général de notre site */
+/* Fond général du site */
 body {
     background-color: #121212;
+
+    /* Image de fond avec un voile sombre */
+    background-image:
+        linear-gradient(rgba(10, 5, 20, 0.65), rgba(10, 5, 20, 0.85)),
+        url("/static/images/background2.jpg");
+
+    /* L'image prend toute la surface disponible */
+    background-size: cover;
+
+    /* L'image reste centrée */
+    background-position: center;
+
+    /* Le fond reste fixe pendant le défilement */
+    background-attachment: fixed;
+
+    background-repeat: no-repeat;
+
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,7 +26,7 @@ body {
 
 /* Style des titres */
 h1 {
-    color: #a855f7;
+    color: white;
     text-align: center;
 }
 
@@ -35,6 +51,190 @@ li {
 /* Style du nom sur la fiche artiste */
 h2 {
     text-align: center;
-    color: #a855f7;
+    color: white;
     font-size: 30px;
+}
+
+/* Conteneur des cartes artistes */
+.artists-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Carte individuelle d'un artiste */
+.artist-card {
+    width: 250px;
+    height: 340px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    color: white;
+    text-decoration: none;
+}
+
+/* Carte individuelle d'un artiste */
+.artist-card {
+    width: 250px;
+    height: 340px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+}
+
+/* Nom de l'artiste en arrière-plan */
+.artist-name {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: white;
+    font-size: 34px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    z-index: 1;
+    opacity: 0.5;
+}
+
+/* Photo de l'artiste au premier plan */
+.artist-card img {
+    position: absolute;
+    top: 75px;
+
+    width: 180px;
+    height: 220px;
+
+    object-fit: cover;
+    border-radius: 15px;
+
+    z-index: 2;
+}
+
+/* Animation de la photo au survol */
+.artist-card img {
+    transition: transform 0.3s ease;
+}
+
+/* La photo s'agrandit légèrement */
+.artist-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Le nom devient plus visible */
+.artist-card:hover .artist-name {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Conteneur de la fiche artiste */
+.artist-detail {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* Photo de l'artiste */
+.artist-detail img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Section des albums */
+.albums-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* Titre de la section */
+.albums-section h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Conteneur des albums */
+.albums-container {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+/* Carte individuelle d'un album */
+.album-card {
+    width: 200px;
+    color: white;
+    text-align: center;
+}
+
+/* Pochette de l'album */
+.album-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Nom de l'album */
+.album-card h3 {
+    color: white;
+    font-size: 18px;
+}
+
+/* Section des certifications */
+.certifications-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* Titre de la section */
+.certifications-section h2 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Conteneur des certifications */
+.certifications-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+/* Carte individuelle d'une certification */
+.certification-card {
+    width: 200px;
+    padding: 20px;
+    background-color: rgba(30, 20, 45, 0.85);
+    border: 1px solid #8a2be2;
+    border-radius: 12px;
+    color: white;
+}
+
+/* Nom de l'album */
+.certification-card h3 {
+    font-size: 18px;
+}
+
+/* Type de certification */
+.certification-card p {
+    color: #c084fc;
+    font-size: 16px;
+    font-weight: bold;
 }
